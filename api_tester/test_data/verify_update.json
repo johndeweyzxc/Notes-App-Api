@@ -1,0 +1,11 @@
+{
+    "data_to_be_uploaded": {
+        "title": "My first note",
+        "description": "My first description"
+    },
+    "updated_data": {
+        "id": 1,
+        "title": "My updated note",
+        "description": "My updated description"
+    }
+}

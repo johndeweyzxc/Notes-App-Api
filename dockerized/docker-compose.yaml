@@ -1,0 +1,18 @@
+version: '3'
+services:
+  rest:
+    container_name: johnd_dev_note_taking
+    image: johnd_dev_note_taking:1
+    build: .
+    env_file:
+      - .env
+    command: sh -c "start_server.sh"
+    networks:
+      johnd_dev_personal_data_center:
+        ipv4_address: 10.10.10.100
+    volumes:
+      - ./dockerized:/app
+
+networks:
+  johnd_dev_personal_data_center:
+    external: True
