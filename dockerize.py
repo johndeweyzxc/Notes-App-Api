@@ -11,7 +11,7 @@ def write_file(file_path, contents):
         f.write(contents) 
 
 def main(parent_path):
-    dockerized_path = f'{parent_path}/dockerized'
+    dockerized_path = f'{parent_path}/dockerized/note_taking_fast_api'
     if not os.path.exists(dockerized_path):
         os.mkdir(dockerized_path)
 

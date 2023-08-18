@@ -1,3 +1,4 @@
+#!/bin/bash
 db_operation=$1
 
 if [ $db_operation = create ]; then

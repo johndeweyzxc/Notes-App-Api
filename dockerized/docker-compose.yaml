@@ -5,13 +5,13 @@ services:
     image: johnd_dev_note_taking:1
     build: .
     env_file:
-      - .env
-    command: sh -c "start_server.sh"
+      - ./note_taking_fast_api/.env
+    command: sh -c "bash start_server.sh"
     networks:
       johnd_dev_personal_data_center:
-        ipv4_address: 10.10.10.100
+        ipv4_address: 20.20.20.100
     volumes:
-      - ./dockerized:/app
+      - ./note_taking_fast_api:/note_taking_fast_api
 
 networks:
   johnd_dev_personal_data_center:

@@ -7,9 +7,11 @@ import os
 
 load_dotenv()
 
-username = os.getenv('USERNAME')
+with open('/note_taking_fast_api/secrets/mariadb_username', 'r') as uname:
+    username = uname.read()
 database_host = os.getenv('DATABASE_IP')
-password = os.getenv('PASSWORD')
+with open('/note_taking_fast_api/secrets/mariadb_password', 'r') as passwd:
+    password = passwd.read()
 database_name = os.getenv('DATABASE_NAME')
 database_port = os.getenv('DATABASE_PORT')
 
@@ -24,7 +26,7 @@ def connect_db(user_name: str,
         connection: MySQLConnection = mysql.connector.connect(
             host=host_name,
             user=user_name,
-            passwd=user_password,
+            password=user_password,
             database=db_name,
             port=db_port
         )
