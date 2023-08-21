@@ -4,6 +4,10 @@ services:
     container_name: johnd_dev_note_taking
     image: johnd_dev_note_taking:1
     build: .
+    deploy:
+      resources:
+        limits:
+          memory: 200M
     env_file:
       - ./note_taking_fast_api/.env
     command: sh -c "bash start_server.sh"
