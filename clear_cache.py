@@ -19,7 +19,7 @@ def main(parent_path):
         current_path = path_list.pop(0)
         for current in os.listdir(current_path):
             # Do not delete pycache at venv and .git repository
-            if current == 'venv' or current == '.git':
+            if current == 'venv' or current == '.git' or current == 'dockerized':
                 continue
             if os.path.isfile(f'{current_path}/{current}'):
                 continue
