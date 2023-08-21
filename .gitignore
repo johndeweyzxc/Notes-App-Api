@@ -3,3 +3,4 @@ venv
 .env
 build
 secrets
+db_creds.yaml

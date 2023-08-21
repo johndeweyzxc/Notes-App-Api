@@ -4,14 +4,15 @@ from mysql.connector import Error, MySQLConnection
 import argparse
 from dotenv import load_dotenv
 import os
+import yaml
 
 load_dotenv()
 
-with open('/note_taking_fast_api/secrets/mariadb_username', 'r') as uname:
-    username = uname.read()
+with open('/note_taking_fast_api/db_creds.yaml', 'r') as db_creds:
+    cred = yaml.safe_load(db_creds)
+username = cred['MARIADB_USERNAME']
+password = cred['MARIADB_PASSWORD']
 database_host = os.getenv('DATABASE_IP')
-with open('/note_taking_fast_api/secrets/mariadb_password', 'r') as passwd:
-    password = passwd.read()
 database_name = os.getenv('DATABASE_NAME')
 database_port = os.getenv('DATABASE_PORT')
 
