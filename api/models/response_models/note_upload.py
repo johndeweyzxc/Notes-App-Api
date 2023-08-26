@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class NoteUpdate(BaseModel):
+class NoteUploadResponse(BaseModel):
     id: int
     title: str
     created_at: int

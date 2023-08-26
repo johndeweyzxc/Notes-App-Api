@@ -70,7 +70,7 @@ def sql_exec_write_query(query: str, data: tuple) -> int:
         connection.commit()
         print(f'\033[32mINFO\033[0m: {name}: Closing database connection')
         connection.close()
-        return 0
+        return (cursor.lastrowid, 0)
     except Error as err:
         print(f"\033[31mERROR\033[0m: {name}: {err}")
         print(f'\033[32mINFO\033[0m: {name}: Closing database connection')

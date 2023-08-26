@@ -42,12 +42,12 @@ def sql_upload_note(new_data: dict[str, any]):
         data.append(value)
     
     query += f'({columns}) VALUES ({placeholders});'
-    db_status = sql_exec_write_query(query, tuple(data))
+    last_row_id, db_status = sql_exec_write_query(query, tuple(data))
     
     if db_status == 1:
         return status.HTTP_500_INTERNAL_SERVER_ERROR
     else:
-        return status.HTTP_201_CREATED
+        return (last_row_id, status.HTTP_201_CREATED)
 
 def sql_get_note(note_id: int):
     query = f'SELECT * FROM {table_name} WHERE id = %s;'

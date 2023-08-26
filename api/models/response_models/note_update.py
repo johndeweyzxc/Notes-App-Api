@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
-class NoteUpdate(BaseModel):
+class NoteUpdateResponse(BaseModel):
     id: int
     title: str
-    created_at: int
+    updated_at: int
     description: str | None = None

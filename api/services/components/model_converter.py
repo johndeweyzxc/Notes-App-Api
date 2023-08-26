@@ -1,4 +1,4 @@
-from api.models.note_get import NoteGet
+from api.models.response_models.note_get import NoteGet
 from api.models.components.date_information import DateInformation
 
 def convert_to_note_model(data: dict[str, any]) -> NoteGet:
