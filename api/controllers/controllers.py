@@ -21,7 +21,7 @@ async def get_note(note_id: int):
     if status_code == status.HTTP_500_INTERNAL_SERVER_ERROR:
         return JSONResponse(content={"message": "Internal server error"}, status_code=status_code)
     elif status_code == status.HTTP_404_NOT_FOUND:
-        return JSONResponse(content={"message": "Account not found"}, status_code=status_code)
+        return JSONResponse(content={"message": "Note not found"}, status_code=status_code)
     else:
         return data
 
