@@ -8,6 +8,7 @@ def convert_to_note_model(data: dict[str, any]) -> NoteGet:
         deleted_at=data.get('deleted_at')
     )
     note_get = NoteGet(
+        id=data.get('id'),
         title=data.get('title'),
         description=data.get('description'),
         date_information=date_information
