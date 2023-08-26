@@ -69,7 +69,7 @@ def verify_delete_route():
 
     # Delete the data
     delete_status_code, _ = test_delete_note(note_id=1)
-    assert delete_status_code == 204
+    assert delete_status_code == 200
 
     # Fetch data again to know if it is truely deleted
     get_status_code2, get_body2 = test_get_note(note_id=1)
