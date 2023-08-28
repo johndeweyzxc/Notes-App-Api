@@ -1,4 +1,4 @@
-## How to run locally
+# How to run locally
 
 If you want to run this app, you have to setup the environment variable and the mysql database.
 
@@ -29,7 +29,6 @@ SERVER_IP='localhost'
 SERVER_PORT=8000
 
 # MYSQL DATABASE
-# You need to setup the username and the password in your mysql database
 USERNAME='user1'
 PASSWORD='password123'
 DATABASE_IP='localhost'
