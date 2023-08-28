@@ -15,7 +15,7 @@ def main(parent_path):
     if not os.path.exists(dockerized_path):
         os.mkdir(dockerized_path)
 
-    ignored_dir = ['.git', 'venv', '__pycache__', 'dockerized']
+    ignored_dir = ['.git', 'venv', '__pycache__', 'dockerized', 'build']
     dir_paths = []
 
     # Loop the parent directory
