@@ -4,15 +4,12 @@ from mysql.connector import Error, MySQLConnection
 import argparse
 from dotenv import load_dotenv
 import os
-import yaml
 
 load_dotenv()
 
-with open('/note_taking_fast_api/db_creds.yaml', 'r') as db_creds:
-    cred = yaml.safe_load(db_creds)
-username = cred['MARIADB_USERNAME']
-password = cred['MARIADB_PASSWORD']
+username = os.getenv('USERNAME')
 database_host = os.getenv('DATABASE_IP')
+password = os.getenv('PASSWORD')
 database_name = os.getenv('DATABASE_NAME')
 database_port = os.getenv('DATABASE_PORT')
 
@@ -27,7 +24,7 @@ def connect_db(user_name: str,
         connection: MySQLConnection = mysql.connector.connect(
             host=host_name,
             user=user_name,
-            password=user_password,
+            passwd=user_password,
             database=db_name,
             port=db_port
         )
@@ -73,7 +70,7 @@ def sql_exec_write_query(query: str, data: tuple) -> int:
         connection.commit()
         print(f'\033[32mINFO\033[0m: {name}: Closing database connection')
         connection.close()
-        return 0
+        return (cursor.lastrowid, 0)
     except Error as err:
         print(f"\033[31mERROR\033[0m: {name}: {err}")
         print(f'\033[32mINFO\033[0m: {name}: Closing database connection')

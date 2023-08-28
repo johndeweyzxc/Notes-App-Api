@@ -1,0 +1,98 @@
+# Endpoints
+/
+    - GET method
+    - Root endpoint
+    - Returns a status code of 200 if successful and a content type of application/json:
+    ```json
+        {"message": "Welcome to rest note taking api."}
+    ```
+
+/api/v1/get-note/{id}
+    - GET method
+    - Get note based on id
+    - Returns a status code of 200 if successful
+    - Returns a status code of 404 if note is not found and a content type of application/json:
+    ```json
+        {
+            "id":1,
+            "title": String,
+            "description": String?,
+            "date_information": {
+                "created_at": Int,
+                "deleted_at": Int?,
+                "Updated_at": Int?
+            }
+        }
+    ```
+
+/api/v1/get-all-note
+    - GET method
+    - Get all notes
+    - Returns a status code of 200 if successful and a content type of application/json:
+    ```json
+        {
+            "note_list": [
+                {
+                    "id":1,
+                    "title": String,
+                    "description": String?,
+                    "date_information": {
+                        "created_at": Int,
+                        "deleted_at": Int?,
+                        "Updated_at": Int?
+                    }
+                }
+            ]
+        }
+    ```
+
+/api/v1/update-note
+    - PATCH method
+    - Update a note
+    - Request body must contain a content type of application/json:
+    ```json
+    {
+        "id": 1,
+        "title": String,
+        "description": String?
+    }
+    ```
+    - Returns a status code of 201 if successful and a content type of application/json
+    ```json
+        {
+            "id": Int,
+            "title": String,
+            "updated_at": Int
+            "description": String?,
+        }
+    ```
+
+/api/v1/upload-note
+    - POST method
+    - Upload a note
+    - Request body must contain a content type of application/json data:
+    ```json
+    {
+        "title": String,
+        "description": String?
+    }
+    ```
+    - Returns a status code of 201 if successful and a content type of application/json
+    ```json
+        {
+            "id": Int,
+            "title": String,
+            "created_at": Int,
+            "description": String?,
+        }
+    ```
+
+/api/v1/delete-note/{note_id}
+    - DELETE method
+    - Deletes a note
+    - Returns a status code of 200 if successful and a content type of application/json
+    ```json
+    {
+        "deleted_at": Int
+    }
+    ```
