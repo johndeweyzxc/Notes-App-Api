@@ -1,8 +1,8 @@
-# How to run locally
+## How to run locally
 
 If you want to run this app, you have to setup the environment variable and the mysql database.
 
-# Setup mysql database
+## Setup mysql database
 
 Create a user with a password
 ```text
@@ -20,7 +20,7 @@ Create a database
 mysql> CREATE DATABASE note_taking_fast_api;
 ```
 
-# Setup environment variable
+## Setup environment variable
 
 Create a file .env and write this:
 ```text
@@ -37,7 +37,7 @@ DATABASE_NAME='note_taking_fast_api'
 TABLE_NAME='notes'
 ```
 
-# Run the server
+## Run the server
 ```
 $ bash start_server.sh
 ```
